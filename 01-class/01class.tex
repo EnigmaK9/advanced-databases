@@ -1,0 +1,64 @@
+\documentclass{article}
+\usepackage[utf8]{inputenc}
+\usepackage{amsmath}
+\usepackage{hyperref}
+
+\title{Resumen de Clase}
+\author{Carlos}
+\date{\today}
+
+\begin{document}
+
+\maketitle
+
+\section{Introducción}
+En esta clase, discutimos el componente llamado \textbf{Automatic Database Diagnostic Monitor (ADDM)}, que se encarga de diagnosticar de manera automática y proactiva el desempeño de la base de datos, identificando problemas y proponiendo soluciones.
+
+\section{Funciones del ADDM}
+\begin{itemize}
+    \item Identificar áreas de la base de datos con grandes tiempos de procesamiento.
+    \item Sugerir cambios a nivel de hardware (ej. más memoria) y a nivel de parámetros de la base de datos.
+    \item Realizar configuraciones a nivel de esquemas y objetos creados por los usuarios.
+    \item Reportar el resultado de los cambios aplicados para evaluar su efectividad.
+\end{itemize}
+
+\section{Vistas Relevantes}
+La recolección y almacenamiento de datos se realiza en las siguientes vistas:
+\begin{itemize}
+    \item \texttt{DBA\_ACTIVE\_SESSION\_HISTORY}
+    \item \texttt{V\$SESSION}
+    \item \texttt{V\$ACTIVE\_SESSION\_HISTORY}
+\end{itemize}
+
+\section{Proceso BMNL}
+El \textbf{BMNL} es un proceso auxiliar encargado de la sincronización de datos estadísticos desde la memoria hacia el disco. Este proceso almacena datos estadísticos a nivel de usuario y sesión.
+
+\section{Ejercicios}
+Se propusieron ejercicios para familiarizarse con las vistas mencionadas:
+\begin{enumerate}
+    \item Generar una sentencia SQL que muestre información de la sesión (usuario, máquina, estado, etc.).
+    \item Mostrar el identificador y el texto SQL de la última sentencia ejecutada en la sesión.
+    \item Generar una sentencia que muestre la fecha y el código SQL de todas las sentencias ejecutadas en la sesión a lo largo del tiempo.
+\end{enumerate}
+
+\section{Proceso RECOVER}
+El \textbf{RECOVER Process} es un proceso de background utilizado en bases de datos distribuidas. Se encarga de:
+\begin{itemize}
+    \item Resolver transacciones que no pudieron completarse o que hicieron \textit{rollback}.
+    \item Limpiar recursos y comunicar acciones a otros nodos involucrados en una transacción distribuida.
+\end{itemize}
+
+Ejemplo de transacción distribuida:
+\begin{verbatim}
+UPDATE local_table SET ...;
+UPDATE remote_table@remote_db SET ...;
+COMMIT;
+\end{verbatim}
+
+Este proceso utiliza el protocolo \textbf{Two-Phase Commit} para asegurar la correcta ejecución de transacciones distribuidas.
+
+\section{Tareas y Próximos Pasos}
+Para la próxima clase, se revisarán los ejercicios pendientes de los temas 4 y 5. Es importante recordar las fechas de entrega establecidas en la herramienta de \textit{Classroom}.
+
+\end{document}
+

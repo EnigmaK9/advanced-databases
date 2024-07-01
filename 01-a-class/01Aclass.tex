@@ -1,0 +1,58 @@
+\documentclass{article}
+\usepackage[utf8]{inputenc}
+\usepackage{amsmath}
+\usepackage{hyperref}
+
+\title{Resumen de Clase}
+\author{Carlos}
+\date{\today}
+
+\begin{document}
+
+\maketitle
+
+\section{Introducción}
+En esta clase, discutimos el proceso de afinamiento automático de la base de datos. Hablamos sobre cómo este proceso, conocido como \textbf{Automatic Database Diagnostic Monitor (ADDM)}, realiza acciones para mejorar el desempeño de la base de datos de forma automática.
+
+\section{Funciones del ADDM}
+\begin{itemize}
+    \item Monitoreo continuo del desempeño de la base de datos.
+    \item Capacidad de auto afinamiento, verificando y corrigiendo problemas de desempeño.
+    \item Recolección de estadísticas y métricas del funcionamiento de la base de datos.
+    \item Almacenamiento de información en la SGA y posterior transferencia a disco en vistas del diccionario.
+    \item Utilización del \textbf{Automatic Workload Repository (AWR)} para almacenar datos históricos y actuales.
+\end{itemize}
+
+\section{Recolección de Estadísticas}
+\begin{itemize}
+    \item Las estadísticas recolectadas se almacenan en la SGA y luego se sincronizan a disco.
+    \item Se guardan en el \textbf{AWR} y contienen información tanto actual como histórica.
+    \item Las estadísticas se recolectan a distintos niveles: base de datos, sesión de usuario, sentencias SQL, y segmentos de almacenamiento.
+\end{itemize}
+
+\section{Snapshots y AWR Baseline}
+\begin{itemize}
+    \item Los \textbf{Snapshots} se toman cada hora y contienen información recolectada en ese periodo.
+    \item Los datos se almacenan en un \textbf{tablespace} específico llamado \textbf{SYSAUX}.
+    \item Un \textbf{AWR Baseline} es un conjunto de snapshots tomados durante un periodo de alto desempeño que se considera óptimo.
+    \item Los baselines se utilizan para comparar periodos de bajo desempeño y diagnosticar problemas.
+\end{itemize}
+
+\section{Ejemplo de Datos de Desempeño}
+\begin{itemize}
+    \item Métricas como el tiempo que tarda un proceso de servidor en encontrar un buffer limpio en el buffer cache.
+    \item Acciones correctivas incluyen ajustar parámetros, redistribuir memoria, y optimizar procesos como el \textbf{DB Writer}.
+\end{itemize}
+
+\section{Proceso ADDM}
+\begin{itemize}
+    \item El \textbf{ADDM} se ejecuta automáticamente y proactivamente para diagnosticar problemas de desempeño.
+    \item Utiliza las estadísticas recolectadas y almacenadas en el AWR.
+    \item Proporciona recomendaciones y puede aplicar cambios para mejorar el desempeño.
+\end{itemize}
+
+\section{Break y Continuación}
+Haremos un break de 5 minutos y luego continuaremos con la siguiente sección de la clase. Discutiremos más sobre el componente \textbf{ADDM} y su funcionamiento como un \textbf{auto advisor} para la base de datos.
+
+\end{document}
+
