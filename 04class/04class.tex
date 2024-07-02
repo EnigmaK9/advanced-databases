@@ -1,0 +1,66 @@
+\documentclass[12pt]{article}
+\usepackage[utf8]{inputenc}
+\usepackage{amsmath}
+\usepackage{hyperref}
+\usepackage{graphicx}
+\usepackage{enumitem}
+
+\title{Resumen de Clase}
+\author{}
+\date{}
+
+\begin{document}
+
+\maketitle
+
+\section*{Resumen de la Clase}
+
+\subsection*{Introducción}
+En la clase de hoy, el instructor comenzó saludando a los estudiantes y confirmando que todo el equipo técnico funcionaba correctamente. Luego, se indicó que se revisaría el tema de métodos de autenticación y los privilegios de administración, con el objetivo de terminar el tema número uno.
+
+\subsection*{Revisión de Métodos de Autenticación}
+El instructor repasó los métodos de autenticación previamente vistos, haciendo énfasis en la autenticación por sistema operativo. Explicó que si un usuario del sistema operativo pertenece a ciertos grupos (normalmente aquellos con los cuales se instaló el software de la base de datos), puede acceder a la base de datos con privilegios de administración. El más común es el grupo \textbf{dba}, y típicamente, solo el usuario \textbf{oracle} tiene este privilegio.
+
+\subsection*{Comandos de Autenticación}
+Se mostraron ejemplos prácticos de comandos SQL utilizados para autenticarse:
+\begin{itemize}
+    \item \texttt{sqlplus / as sysdba}: Autenticación por sistema operativo sin necesidad de usuario ni contraseña.
+    \item \texttt{connect / as sysdba}: Similar al anterior, utilizado dentro de SQL*Plus.
+\end{itemize}
+Se explicó que al omitir usuario y contraseña, el sistema operativo autenticará al usuario actual si pertenece a los grupos adecuados.
+
+\subsection*{Autenticación mediante Archivo de Passwords}
+El siguiente método discutido fue la autenticación usando un archivo de passwords. Se mencionó que toda base de datos Oracle crea un archivo de passwords durante su instalación. Este archivo se encuentra típicamente en \texttt{\$ORACLE\_HOME/dbs} y sigue la convención de nombrado \texttt{orapw\{ORACLE\_SID\}}.
+
+\subsection*{Práctica con el Archivo de Passwords}
+Se realizaron ejercicios prácticos para demostrar el uso de archivos de passwords:
+\begin{itemize}
+    \item \texttt{sqlplus 'username/password@dbname as sysdba'}: Conectarse utilizando un usuario con privilegios de administración definidos en el archivo de passwords.
+\end{itemize}
+Se explicó que el archivo de passwords solo contiene usuarios con privilegios de administración y no almacena las contraseñas de usuarios comunes.
+
+\subsection*{Diccionario de Datos}
+Se abordó el concepto del diccionario de datos, que contiene información sobre todos los objetos de la base de datos, incluyendo usuarios y sus privilegios. El diccionario de datos solo está disponible cuando la base de datos está en funcionamiento.
+
+\subsection*{Ejercicio Práctico}
+Se realizó un ejercicio práctico en el que se creó un usuario nuevo y se le asignaron privilegios de administración. Se conectó utilizando distintos métodos de autenticación y se verificó su impacto en el diccionario de datos y el archivo de passwords. Las instrucciones principales incluyeron:
+\begin{itemize}
+    \item \texttt{create user username identified by password}
+    \item \texttt{grant sysdba to username}
+    \item \texttt{select * from v\$pwfile\_users}
+\end{itemize}
+
+\subsection*{Regeneración de Archivos de Passwords}
+Se enseñó cómo regenerar un archivo de passwords en caso de pérdida o corrupción utilizando el comando \texttt{orapwd}. Los pasos involucraron:
+\begin{itemize}
+    \item Detener la instancia.
+    \item Mover o renombrar el archivo de passwords existente.
+    \item Ejecutar el comando \texttt{orapwd file=\$ORACLE\_HOME/dbs/orapw\{ORACLE\_SID\} password=\{password\} entries=10}.
+\end{itemize}
+Este proceso permite recuperar el acceso administrativo a la base de datos.
+
+\subsection*{Conclusión}
+La clase concluyó con un resumen de los métodos de autenticación y su importancia en la administración de bases de datos Oracle. Se recordó a los estudiantes que revisaran sus notas y ejercicios prácticos para prepararse para un quiz sobre el tema la próxima semana.
+
+\end{document}
+

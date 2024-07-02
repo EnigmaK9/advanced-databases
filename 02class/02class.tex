@@ -1,0 +1,80 @@
+\documentclass{article}
+\usepackage[utf8]{inputenc}
+\usepackage{amsmath}
+\usepackage{hyperref}
+
+\title{Resumen de Clase}
+\author{Carlos}
+\date{\today}
+
+\begin{document}
+
+\maketitle
+
+\section{Introducción}
+En esta clase se abordaron los siguientes puntos clave:
+
+\begin{itemize}
+    \item Saludo y revisión del estado actual de los alumnos.
+    \item Discusión sobre el manejo de horarios mixtos en el nuevo semestre.
+    \item Revisión del ejercicio práctico número 1 y resolución de dudas.
+\end{itemize}
+
+\section{Temas Principales}
+
+\subsection{Herramientas de Administración}
+\begin{itemize}
+    \item Uso de herramientas gráficas y de línea de comandos para la administración de bases de datos.
+    \item Programación en PL/SQL y Shell para automatizar tareas administrativas.
+\end{itemize}
+
+\subsection{Ejercicio Práctico Número 2}
+\begin{itemize}
+    \item Generación de un script en Shell para descargar imágenes de una lista de URLs y comprimirlas en un archivo zip.
+    \item Validación de parámetros de entrada y manejo de errores.
+    \item Ejemplo detallado de un script en Shell, explicando cada paso y su funcionalidad.
+\end{itemize}
+
+\section{Detalles del Ejercicio Práctico Número 2}
+
+\subsection{Encabezado del Script}
+Cada script debe incluir un encabezado con el autor, fecha y una breve descripción del script. Por ejemplo:
+\begin{verbatim}
+#!/bin/bash
+# Autor: Carlos
+# Fecha: 2024-07-01
+# Descripción: Script para descargar imágenes y comprimirlas en un archivo zip.
+\end{verbatim}
+
+\subsection{Parámetros de Entrada}
+El script recibe tres parámetros:
+\begin{itemize}
+    \item Ruta del archivo de texto con las URLs de las imágenes.
+    \item Número de imágenes a descargar.
+    \item Nombre del archivo zip a generar (opcional).
+\end{itemize}
+
+\subsection{Validaciones y Funciones}
+\begin{itemize}
+    \item Validación de la existencia y formato correcto del archivo de imágenes.
+    \item Validación del rango del número de imágenes (1 a 90).
+    \item Creación de la función \texttt{ayuda} para mostrar mensajes de error y terminar la ejecución en caso de parámetros incorrectos.
+\end{itemize}
+
+\subsection{Descarga de Imágenes y Compresión}
+\begin{itemize}
+    \item Uso del comando \texttt{wget} para descargar las imágenes.
+    \item Manejo de errores durante la descarga.
+    \item Creación del archivo zip y configuración de permisos.
+    \item Generación de un archivo de texto con la lista de archivos incluidos en el zip.
+\end{itemize}
+
+\section{Conclusiones}
+\begin{itemize}
+    \item La programación en Shell es poderosa y permite automatizar tareas administrativas complejas.
+    \item Es crucial validar y manejar correctamente los parámetros de entrada para asegurar la robustez del script.
+    \item Los alumnos deben familiarizarse con los comandos y estructuras básicas de Shell para el curso.
+\end{itemize}
+
+\end{document}
+

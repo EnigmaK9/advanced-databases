@@ -1,0 +1,68 @@
+\documentclass{article}
+\usepackage[utf8]{inputenc}
+\usepackage{amsmath}
+\usepackage{hyperref}
+
+\title{Resumen de Clase}
+\author{Carlos}
+\date{\today}
+
+\begin{document}
+
+\maketitle
+
+\section{Introducción}
+En esta clase, discutimos el protocolo \textbf{Two-Phase Commit} y su importancia en la sincronización y organización de transacciones distribuidas en bases de datos.
+
+\section{Protocolo Two-Phase Commit}
+\begin{itemize}
+    \item El proceso de una transacción se realiza en dos etapas:
+    \begin{enumerate}
+        \item \textbf{Primera fase: Preparación}
+        \begin{itemize}
+            \item Cada nodo de la base de datos realiza su tarea y se prepara para hacer \textit{commit}.
+            \item Los nodos informan que están listos para realizar \textit{commit}.
+        \end{itemize}
+        \item \textbf{Segunda fase: Confirmación}
+        \begin{itemize}
+            \item Si todos los nodos reportan que su \textit{commit} fue exitoso, la transacción se considera exitosa.
+            \item Cada nodo sincroniza los cambios a través del \textit{commit}.
+        \end{itemize}
+    \end{enumerate}
+    \item Si algún nodo falla en realizar \textit{commit}, se ejecuta una operación de \textit{rollback} en todos los nodos.
+\end{itemize}
+
+\section{Proceso RECO}
+\begin{itemize}
+    \item El proceso \textbf{RECO (Recover Process)} se encarga de las operaciones de recuperación y limpieza en transacciones distribuidas.
+    \item Si un nodo falla, \textbf{RECO} comunica a los otros nodos para realizar \textit{rollback}.
+\end{itemize}
+
+\section{Finalización del Tema 5}
+Hemos concluido el estudio de los procesos de la base de datos, destacando los procesos principales y obligatorios para su funcionamiento.
+
+\section{Otros Procesos}
+\begin{itemize}
+    \item Existen otros procesos opcionales que realizan diversas tareas adicionales.
+    \item La vista \texttt{V\$PROCESS} contiene información detallada sobre todos los procesos en una instancia.
+    \item Ejemplo de consulta en \texttt{V\$PROCESS}:
+    \begin{verbatim}
+    SELECT spid, pname, username, program
+    FROM V$PROCESS;
+    \end{verbatim}
+\end{itemize}
+
+\section{Examen y Ejercicios}
+\begin{itemize}
+    \item Próxima semana: revisión de ejercicios de los temas 4 y 5.
+    \item Preparar y estudiar los conceptos teóricos y prácticos discutidos.
+\end{itemize}
+
+\section{Interacción y Participación}
+Se anima a los estudiantes a participar activamente en las clases virtuales, utilizando micrófonos y compartiendo pantallas para resolver dudas en tiempo real.
+
+\section{Próxima Clase}
+La próxima clase comenzaremos con el tema 6, relacionado con las estructuras de almacenamiento en bases de datos.
+
+\end{document}
+

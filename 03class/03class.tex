@@ -1,0 +1,78 @@
+\documentclass[12pt]{article}
+\usepackage[utf8]{inputenc}
+\usepackage{amsmath}
+\usepackage{hyperref}
+\usepackage{graphicx}
+\usepackage{enumitem}
+
+\title{Resumen de Clase}
+\author{}
+\date{}
+
+\begin{document}
+
+\maketitle
+
+\section*{Resumen de la Clase}
+
+\subsection*{Introducción}
+En la clase de hoy, comenzamos con un problema técnico inesperado. La computadora del instructor se congeló, lo que resultó en la necesidad de reiniciarla. Este inconveniente causó una breve interrupción en la clase, pero sirvió para despertar a los estudiantes y retomar la lección con más energía.
+
+\subsection*{Herramientas de Protección de Datos}
+Se discutió sobre la herramienta \textbf{Data Guard} de Oracle, que se utiliza para proteger datos en bases productivas. La protección y recuperación de datos es crucial en cualquier base de datos para evitar la pérdida de información importante. Data Guard ofrece varias funcionalidades, entre ellas:
+\begin{itemize}
+    \item Alta disponibilidad
+    \item Protección de datos
+    \item Recuperación de datos ante desastres
+    \item Monitoreo de bases de datos
+\end{itemize}
+La herramienta cuenta con un administrador que maneja la seguridad y el cifrado de datos. Se explicó el rol de usuarios como \textbf{SYS} y \textbf{SYSDG}, quienes tienen permisos específicos para administrar estas funcionalidades.
+
+\subsection*{Usuarios y Privilegios}
+Se abordaron los distintos usuarios y privilegios administrativos en Oracle. Algunos de los principales usuarios y sus roles son:
+\begin{itemize}
+    \item \textbf{SYSDBA}: Tiene permisos de administración total sobre la base de datos.
+    \item \textbf{SYSOPER}: Permite realizar ciertas operaciones administrativas, pero no tiene el mismo nivel de acceso que SYSDBA.
+    \item \textbf{SYSDG}: Relacionado con la administración de Data Guard.
+    \item \textbf{SYSBACKUP}: Maneja las tareas de respaldo y recuperación.
+    \item \textbf{SYSKM}: Encargado de la administración de claves de cifrado.
+\end{itemize}
+Se explicó cómo estos usuarios se crean y administran, y cómo se utilizan para asegurar y manejar la base de datos.
+
+\subsection*{Arquitectura Real Application Cluster (RAC)}
+La arquitectura \textbf{Real Application Cluster (RAC)} de Oracle fue otro tema importante. RAC permite tener múltiples servidores trabajando en conjunto para manejar altas cargas de trabajo y ofrecer alta disponibilidad y tolerancia a fallas. Se describió el funcionamiento básico de RAC:
+\begin{itemize}
+    \item Los datos están almacenados en un almacenamiento compartido accesible por todos los nodos.
+    \item Cada nodo tiene su propia instancia de base de datos.
+    \item Un balanceador de carga distribuye las solicitudes entre los nodos para optimizar el rendimiento.
+\end{itemize}
+Esta arquitectura es ampliamente utilizada en la industria debido a sus beneficios en términos de disponibilidad y gestión de cargas de trabajo.
+
+\subsection*{Concepto de Esquemas}
+El concepto de \textbf{esquemas} en bases de datos fue explicado en detalle. Un esquema es un contenedor lógico para los objetos de base de datos como tablas, vistas, índices, sinónimos, etc. Cada usuario tiene asociado su propio esquema donde guarda sus objetos. Se explicó cómo un usuario puede cambiar de esquema al obtener ciertos privilegios de administración.
+
+\subsection*{Ejercicio Práctico}
+Se realizó un ejercicio práctico para consolidar los conceptos aprendidos:
+\begin{enumerate}
+    \item \textbf{Crear un usuario}: Se creó un usuario nuevo en Oracle y se le asignaron privilegios básicos para iniciar sesión y crear tablas.
+    \item \textbf{Conexión sin privilegios administrativos}: Se conectó al usuario sin utilizar privilegios administrativos y se verificó su esquema.
+    \item \textbf{Crear una tabla}: Se creó una tabla sencilla y se verificó su existencia desde diferentes esquemas y usuarios.
+    \item \textbf{Asignación de privilegios administrativos}: Se asignaron privilegios administrativos como SYSDBA y SYSOPER al usuario recién creado.
+    \item \textbf{Conexión con privilegios administrativos}: Se conectó al usuario utilizando los privilegios SYSDBA y SYSOPER, observando cómo cambia el esquema y los privilegios disponibles.
+\end{enumerate}
+Estos pasos ayudaron a entender cómo se manejan los usuarios y los privilegios en Oracle.
+
+\subsection*{Métodos de Autenticación}
+Finalmente, se abordaron los métodos de autenticación en Oracle:
+\begin{itemize}
+    \item \textbf{Autenticación vía sistema operativo}: Los usuarios que pertenecen a ciertos grupos del sistema operativo pueden autenticarse en Oracle con privilegios de administración sin necesidad de contraseña.
+    \item \textbf{Autenticación vía diccionario de datos}: Se utiliza el diccionario interno de la base de datos para autenticar usuarios.
+    \item \textbf{Autenticación mediante archivo de passwords}: Se crea y utiliza un archivo de passwords para la autenticación de usuarios.
+\end{itemize}
+Se explicó cómo la autenticación vía sistema operativo permite a los usuarios autenticarse simplemente perteneciendo a ciertos grupos privilegiados. Se mostró cómo el usuario Oracle, que pertenece a estos grupos, puede autenticarse sin necesidad de proporcionar una contraseña.
+
+\subsection*{Conclusión}
+La clase concluyó con una introducción a los métodos de autenticación en Oracle, que se explorarán más a fondo en futuras clases. Se enfatizó la importancia de seguir buenas prácticas al utilizar usuarios con privilegios altos para mantener la seguridad de la base de datos.
+
+\end{document}
+
